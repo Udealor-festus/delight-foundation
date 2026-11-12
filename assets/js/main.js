@@ -149,13 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+/* PayPal.Me opens a simple "send money" screen with the amount filled in */
+const PAYPAL_ME = "https://www.paypal.me/FestusOnyekaUdealor";
+
 function paypalLink(amount) {
-  var params = new URLSearchParams({
-    cmd: '_xclick',
-    business: PAYPAL_EMAIL,
-    amount: amount,
-    currency_code: 'USD',
-    item_name: 'De_Light Foundation — Student Sponsorship'
-  });
-  return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
+  return PAYPAL_ME + '/' + encodeURIComponent(amount) + 'USD';
 }
